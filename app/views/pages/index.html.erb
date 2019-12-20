@@ -1,0 +1,34 @@
+<div class="container text-center">
+  <h3>RGB Color Picker</h3>
+  <div class="">
+    <input id="red" data-width="150" type="text" value="0" data-max="255" class="dial">
+    <input id="green" data-width="150" type="text" value="0" data-max="255" class="dial">
+    <input id="blue" data-width="150" type="text" value="0" data-max="255" class="dial">
+  </div>
+  <div>
+    <div class="d-flex justify-content-center">
+      <div class="row">
+        <div class="col">
+          <div id="text">
+            rgb(0, 0, 0)
+          </div>
+          <div id="color-result" style="height: 100px; width: 100px;">
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  $(function () {
+    $(".dial").knob({
+      'change': function () {
+        var rgb_result = 'rgb(' + $('#red').val() + ', ' + $('#green').val() + ', ' + $('#blue').val() + ')';
+        $('#color-result').css('background-color', rgb_result);
+        $('#text').text(rgb_result);
+      }
+    });
+  });
+</script>
